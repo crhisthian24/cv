@@ -1,11 +1,30 @@
 ---
-import Welcome from '../components/Welcome.astro';
+// src/pages/curriculum.astro
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Columnaizq from '../components/Columnaizq.astro';
+import Titulo from '../components/Titulo.astro';
+import Educacion from '../components/Educacion.astro';
+import Experiencia from '../components/Experiencia.astro';
+import Habilidades from '../components/Habilidades.astro';
 ---
 
 <Layout>
-	<Welcome />
+<div class="max-w-5xl mx-auto bg-gray-200 shadow-xl grid grid-cols-[300px_1fr] mt-10 mb-10 p-6">
+    
+    <Columnaizq />
+ 
+
+
+    <!-- Columna derecha -->
+    <div class="flex flex-col gap-6 p-6 bg-white shadow-lg rounded-3xl">
+      <Titulo />
+
+      <Educacion />
+
+      <Experiencia />
+    
+      <Habilidades />
+    </div>
+
+  </div>
 </Layout>
