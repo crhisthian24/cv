@@ -2,17 +2,35 @@ name: Deploy Astro to GitHub Pages
 
 on:
   push:
-    branches: [main]
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+    branches:
+      - main  # Cambia si tu rama principal tiene otro nombre
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: withastro/action@v2
+      # 1️⃣ Clona el repo
+      - uses: actions/checkout@v3
+
+      # 2️⃣ Instala Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      # 3️⃣ Instala dependencias
+      - name: Install dependencies
+        run: npm ci
+
+      # 4️⃣ Build de Astro
+      - name: Build Astro site
+        run: npm run build
+
+      # 5️⃣ Deploy a GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v7
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          destination_branch: gh-pages
