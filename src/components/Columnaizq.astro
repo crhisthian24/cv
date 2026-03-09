@@ -1,13 +1,12 @@
 ---
-import Assets from '../assets/astro.svg';
+import logo from '../assets/logo.png';
 ---
 
 <aside class="bg-gray-200 p-6">
 
-  <!-- imagen que la guardamos en la carpeta public porque es una web estatica -->
   <div class="flex justify-center mb-6">
     <img
-    src="/logo.png"
+    src={logo.src}
     alt="Foto de perfil"
     />
   </div>
@@ -28,7 +27,7 @@ import Assets from '../assets/astro.svg';
   <br>
   <h2 class="text-xl text-blue-500 mt-2">IDIOMAS</h2>
 
-  <p>ESPAÑOL - BÁSICO</p>
+  <p>ESPAÑOL - NATIVO</p>
   <p>INGLÉS - BÁSICO</p>
 
 </aside>
